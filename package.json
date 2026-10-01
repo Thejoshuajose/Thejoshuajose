@@ -1,0 +1,16 @@
+{
+  "name": "thejoshuajose-profile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GitHub profile README for Thejoshuajose, plus the generator for its self-hosted stat cards.",
+  "author": "Joshua Gonzales (FIWB Solutions LLC)",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "stats": "node scripts/stats/generate.mjs --user Thejoshuajose --out dist"
+  }
+}

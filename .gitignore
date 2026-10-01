@@ -1,0 +1,28 @@
+# Generated stat cards (published to the `stats` branch by CI, never committed to main)
+dist/
+
+# Dependencies and tooling
+node_modules/
+npm-debug.log*
+
+# Secrets: never commit tokens or local env files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local assistant state
+.claude/settings.local.json
+.remember/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Crash dumps from Git Bash on Windows
+*.stackdump

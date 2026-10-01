@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-labelledby="banner-title banner-desc">
+  <title id="banner-title">JOSH — Full Stack Developer</title>
+  <desc id="banner-desc">Building full-stack products from interface to infrastructure: interface, API, services, data and cloud layers.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#F0F6FC" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="fade" cx="0.62" cy="0.5" r="0.75">
+      <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="grid-mask">
+      <rect width="1280" height="360" fill="url(#fade)"/>
+    </mask>
+    <radialGradient id="glow" cx="0.18" cy="0.42" r="0.5">
+      <stop offset="0" stop-color="#2563EB" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2563EB" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0.15"/>
+    </linearGradient>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+      .cursor { animation: blink 1.1s steps(1) infinite; }
+      .pulse { animation: travel 6s cubic-bezier(.45,0,.55,1) infinite; }
+      .layer { animation: lit 6s ease-in-out infinite; }
+      .l2 { animation-delay: 1.1s; } .l3 { animation-delay: 2.2s; } .l4 { animation-delay: 3.3s; } .l5 { animation-delay: 4.4s; }
+      @keyframes blink { 50% { opacity: 0; } }
+      @keyframes travel { 0% { transform: translateY(0); opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { transform: translateY(216px); opacity: 0; } }
+      @keyframes lit { 0%, 30%, 100% { stroke: #30363D; } 12% { stroke: #2563EB; } }
+      @media (prefers-reduced-motion: reduce) { .cursor, .pulse, .layer { animation: none; } }
+    </style>
+  </defs>
+
+  <rect width="1280" height="360" fill="#0D1117"/>
+  <rect width="1280" height="360" fill="url(#grid)" mask="url(#grid-mask)"/>
+  <rect width="1280" height="360" fill="url(#glow)"/>
+
+  <!-- Identity -->
+  <g transform="translate(88 0)">
+    <text x="0" y="92" class="mono" font-size="15" fill="#8B949E">
+      <tspan fill="#2563EB">~</tspan> $ whoami<tspan class="cursor" fill="#F0F6FC"> ▍</tspan>
+    </text>
+    <text x="-4" y="200" class="sans" font-size="112" font-weight="800" letter-spacing="10" fill="#F0F6FC">JOSH</text>
+    <text x="0" y="240" class="mono" font-size="19" letter-spacing="7" fill="#C9D1D9">FULL STACK DEVELOPER</text>
+    <rect x="0" y="262" width="44" height="3" rx="1.5" fill="#2563EB"/>
+    <text x="0" y="296" class="sans" font-size="17" fill="#8B949E">Building full-stack products from interface to infrastructure.</text>
+  </g>
+
+  <!-- Stack layers -->
+  <g transform="translate(828 52)">
+    <rect x="-1" y="20" width="2" height="216" fill="url(#rail)" opacity="0.6"/>
+
+    <g class="mono" font-size="13">
+      <g transform="translate(24 0)">
+        <rect class="layer" width="340" height="40" rx="8" fill="#161B22" stroke="#30363D"/>
+        <text x="16" y="25" fill="#F0F6FC" letter-spacing="2">INTERFACE</text>
+        <text x="324" y="25" text-anchor="end" fill="#8B949E">React · TypeScript</text>
+      </g>
+      <g transform="translate(24 54)">
+        <rect class="layer l2" width="340" height="40" rx="8" fill="#161B22" stroke="#30363D"/>
+        <text x="16" y="25" fill="#F0F6FC" letter-spacing="2">API</text>
+        <text x="324" y="25" text-anchor="end" fill="#8B949E">REST · FastAPI · ASP.NET</text>
+      </g>
+      <g transform="translate(24 108)">
+        <rect class="layer l3" width="340" height="40" rx="8" fill="#161B22" stroke="#30363D"/>
+        <text x="16" y="25" fill="#F0F6FC" letter-spacing="2">SERVICES</text>
+        <text x="324" y="25" text-anchor="end" fill="#8B949E">C# · .NET · Python</text>
+      </g>
+      <g transform="translate(24 162)">
+        <rect class="layer l4" width="340" height="40" rx="8" fill="#161B22" stroke="#30363D"/>
+        <text x="16" y="25" fill="#F0F6FC" letter-spacing="2">DATA</text>
+        <text x="324" y="25" text-anchor="end" fill="#8B949E">PostgreSQL · MongoDB</text>
+      </g>
+      <g transform="translate(24 216)">
+        <rect class="layer l5" width="340" height="40" rx="8" fill="#161B22" stroke="#30363D"/>
+        <text x="16" y="25" fill="#F0F6FC" letter-spacing="2">CLOUD</text>
+        <text x="324" y="25" text-anchor="end" fill="#8B949E">AWS · CI/CD</text>
+      </g>
+    </g>
+    <g fill="#30363D">
+      <rect x="-4" y="16" width="8" height="8" rx="2"/>
+      <rect x="-4" y="70" width="8" height="8" rx="2"/>
+      <rect x="-4" y="124" width="8" height="8" rx="2"/>
+      <rect x="-4" y="178" width="8" height="8" rx="2"/>
+      <rect x="-4" y="232" width="8" height="8" rx="2"/>
+    </g>
+    <g stroke="#30363D">
+      <line x1="4" y1="20" x2="24" y2="20"/>
+      <line x1="4" y1="74" x2="24" y2="74"/>
+      <line x1="4" y1="128" x2="24" y2="128"/>
+      <line x1="4" y1="182" x2="24" y2="182"/>
+      <line x1="4" y1="236" x2="24" y2="236"/>
+    </g>
+    <circle class="pulse" cx="0" cy="20" r="4" fill="#2563EB"/>
+  </g>
+</svg>

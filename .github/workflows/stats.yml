@@ -1,0 +1,52 @@
+name: Profile stats
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/**
+      - .github/workflows/stats.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stats
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Test
+        run: npm test
+
+      - name: Generate stat cards
+        # METRICS_TOKEN is an optional read-only PAT so private work is counted; without it the
+        # cards fall back to public data and say so on the card.
+        env:
+          GH_STATS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/stats/generate.mjs --user "${{ github.repository_owner }}" --out dist
+
+      - name: Publish to the stats branch
+        uses: crazy-max/ghaction-github-pages@1d6ee9b181a81033a16bd707a1401afa978daab4 # v5.0.0
+        with:
+          target_branch: stats
+          build_dir: dist
+          jekyll: false
+          commit_message: "chore: update profile stats"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
