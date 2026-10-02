@@ -11,6 +11,7 @@
   },
   "scripts": {
     "test": "node --test",
-    "stats": "node scripts/stats/generate.mjs --user Thejoshuajose --out dist"
+    "stats": "node scripts/stats/generate.mjs --user Thejoshuajose --out dist",
+    "snake": "node scripts/snake/generate.mjs --user Thejoshuajose --out dist"
   }
 }

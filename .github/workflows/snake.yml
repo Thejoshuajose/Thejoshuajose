@@ -7,6 +7,9 @@ on:
   push:
     branches: [main]
     paths:
+      - scripts/snake/**
+      - scripts/stats/github.mjs
+      - scripts/stats/render.mjs
       - .github/workflows/snake.yml
 
 permissions:
@@ -21,13 +24,24 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Generate contribution snake
-        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3.5.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=#2563EB
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#2563EB
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Test
+        run: npm test
+
+      - name: Generate contribution snake
+        # Our own generator rather than Platane/snk, whose snake has a fixed length: this one
+        # grows a segment for every active day it eats. METRICS_TOKEN is optional (see stats.yml).
+        env:
+          GH_STATS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/snake/generate.mjs --user "${{ github.repository_owner }}" --out dist
 
       - name: Publish to the output branch
         uses: crazy-max/ghaction-github-pages@1d6ee9b181a81033a16bd707a1401afa978daab4 # v5.0.0
