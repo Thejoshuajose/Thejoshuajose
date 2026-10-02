@@ -86,7 +86,7 @@ export function renderSnake(grid, plan, { themeName, login }) {
     return `<rect class="c" style="animation-name:${name}" ${attrs}/>`;
   });
 
-  const title = `Snake eating ${login}'s contribution graph one week at a time, growing from ${plan.startLength} to ${plan.finalLength} segments as it eats each active day`;
+  const title = `Snake eating ${login}'s contribution graph, faintest days first, growing from ${plan.startLength} to ${plan.finalLength} segments as it eats each active day`;
   const duration = `${total}ms`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title">
