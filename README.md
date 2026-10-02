@@ -49,6 +49,10 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 <img src="https://img.shields.io/badge/.NET_MAUI-161B22?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET MAUI" />
 <img src="https://img.shields.io/badge/Expo_%C2%B7_React_Native-161B22?style=for-the-badge&logo=expo&logoColor=white" alt="Expo and React Native" />
 
+**Desktop**<br />
+<img src="https://img.shields.io/badge/WPF-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgeD0iMyIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE2IiByeD0iMiIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0zIDguNWgxOE03IDEyLjVoNk03IDE2aDEwIi8+PC9zdmc+" alt="WPF" />
+<img src="https://img.shields.io/badge/Windows_Forms-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgeD0iMyIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE2IiByeD0iMiIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0zIDguNWgxOCIvPjxyZWN0IHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHg9IjYuNSIgeT0iMTEuNSIgd2lkdGg9IjExIiBoZWlnaHQ9IjMiIHJ4PSIuNSIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0xMyAxNy41aDQuNSIvPjwvc3ZnPg==" alt="Windows Forms" />
+
 **Data**<br />
 <img src="https://img.shields.io/badge/PostgreSQL-161B22?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
 <img src="https://img.shields.io/badge/Supabase-161B22?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
@@ -56,6 +60,7 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 
 **Cloud and DevOps**<br />
 <img src="https://img.shields.io/badge/AWS-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTTcgMTguNWE0LjUgNC41IDAgMCAxLS42LTguOTZBNiA2IDAgMCAxIDE3LjYgOC4xIDUuMiA1LjIgMCAwIDEgMTcgMTguNXoiLz48L3N2Zz4=" alt="AWS" />
+<img src="https://img.shields.io/badge/Azure-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTTkuOCAzLjUgMyAyMGg1LjYiLz48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMTMuOSAzLjUgMjEgMjBIOC42bDctNC42Ii8+PC9zdmc+" alt="Azure" />
 <img src="https://img.shields.io/badge/Docker-161B22?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
 <img src="https://img.shields.io/badge/GitHub_Actions-161B22?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions" />
 
@@ -86,7 +91,7 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake.svg" />
-  <img src="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake-dark.svg" width="100%" alt="Animated snake moving across the GitHub contribution graph." />
+  <img src="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake-dark.svg" width="100%" alt="Animated snake eating its way across the GitHub contribution graph, growing longer with every active day it eats." />
 </picture>
 
 <sub>Cards are generated daily from the GitHub API by this repository's own workflows. They count private work, so the numbers are higher than what the public repositories alone would show.</sub>

@@ -18,15 +18,19 @@ Thejoshuajose/
 ├── docs/
 │   └── SETUP.md                  # this file
 ├── scripts/
+│   ├── snake/
+│   │   ├── plan.mjs              # calendar → grid → route → growth timeline (pure)
+│   │   ├── render.mjs            # animated SVG: one stroked path whose dash grows as it eats
+│   │   └── generate.mjs          # CLI entry used by snake.yml
 │   └── stats/
 │       ├── aggregate.mjs         # language + streak + activity maths (pure)
 │       ├── github.mjs            # GraphQL client: timeouts, retries, pagination
 │       ├── render.mjs            # SVG card rendering, dark + light
 │       └── generate.mjs          # CLI entry used by the workflow
-├── test/                         # node:test suites for the generator
+├── test/                         # node:test suites for both generators
 └── .github/
     └── workflows/
-        ├── snake.yml             # contribution snake → `output` branch
+        ├── snake.yml             # growing contribution snake → `output` branch
         ├── stats.yml             # activity + language cards → `stats` branch
         └── test.yml              # runs npm test on push / PR
 ```
@@ -65,7 +69,7 @@ git push -u origin main
 
 ## 3. Enable Actions and permissions
 
-1. **Settings → Actions → General → Actions permissions**: allow actions. The workflows pin `actions/*`, `Platane/snk` and `crazy-max/ghaction-github-pages` to commit SHAs. If you restrict to selected actions, allow those three owners.
+1. **Settings → Actions → General → Actions permissions**: allow actions. The workflows pin `actions/*` and `crazy-max/ghaction-github-pages` to commit SHAs. If you restrict to selected actions, allow those two owners.
 2. **Settings → Actions → General → Workflow permissions**: the workflows request `contents: write` themselves. If the org/account default is read-only and the run fails with `403` on push, set this to **Read and write permissions**.
 
 ## 4. Add the stats token (recommended)
