@@ -20,7 +20,7 @@ Thejoshuajose/
 ├── scripts/
 │   ├── snake/
 │   │   ├── plan.mjs              # calendar → grid → snk-style hunt with collision-safe growth (pure)
-│   │   ├── render.mjs            # animated SVG: one stroked path whose dash grows as it eats
+│   │   ├── render.mjs            # animated SVG: growing stroked-path snake + snk-style progress bar
 │   │   └── generate.mjs          # CLI entry used by snake.yml
 │   └── stats/
 │       ├── aggregate.mjs         # language + streak + activity maths (pure)

@@ -140,14 +140,14 @@ test("each eaten cell disappears and returns; empty cells are never animated", (
   const svg = renderSnake(grid, planRun(grid), { themeName: "light", login: "someone" });
   assert.equal((svg.match(/class="c"/g) ?? []).length, 2);
   assert.match(svg, /@keyframes e0_0\{0%,[\d.]+%\{fill:#216E39\}[\d.]+%,[\d.]+%\{fill:#EBEDF0\}100%\{fill:#216E39\}\}/);
-  assert.equal((svg.match(/<rect /g) ?? []).length, ROWS);
+  assert.equal((svg.match(/<rect [^>]*width="10" height="10"/g) ?? []).length, ROWS, "one cell per day");
 });
 
 test("render respects reduced motion, escapes the login and rejects unknown themes", () => {
   const grid = buildGrid(calendarFrom([full(() => 1)]));
   const plan = planRun(grid);
   const svg = renderSnake(grid, plan, { themeName: "dark", login: `<x>"` });
-  assert.match(svg, /@media \(prefers-reduced-motion: reduce\)\{\.c,\.g,\.s\{animation:none\}\}/);
+  assert.match(svg, /@media \(prefers-reduced-motion: reduce\)\{\.c,\.g,\.s,\.b\{animation:none\}\}/);
   assert.match(svg, /\.g\{opacity:0;/, "snake is hidden when animations are off");
   assert.ok(svg.includes("&lt;x&gt;&quot;"));
   assert.ok(!svg.includes("<x>"));
@@ -184,4 +184,28 @@ test("main rejects bad usernames, escaping output paths and a missing token", as
   await assert.rejects(main(["--user", "bad name"], { GITHUB_TOKEN: "t" }), /Invalid GitHub username/);
   await assert.rejects(main(["--user", "ok", "--out", "../../escape"], { GITHUB_TOKEN: "t" }), /inside the working directory/);
   await assert.rejects(main(["--user", "ok", "--out", "dist"], {}), /token is required/);
+});
+
+test("progress bar gets one slice per meal, in eating order, coloured by level", () => {
+  const grid = buildGrid(calendarFrom([full((y) => (y === 0 ? 4 : 0)), full(() => 0), full((y) => (y === 6 ? 1 : 0))]));
+  const plan = planRun(grid);
+  const svg = renderSnake(grid, plan, { themeName: "dark", login: "someone" });
+  const slices = [...svg.matchAll(/<rect class="b" style="animation-name:(b\d+)" x="([\d.]+)" y="[\d.]+" width="([\d.]+)"[^>]*fill="(#[0-9A-F]+)"\/>/g)];
+  assert.equal(slices.length, 2);
+  // Faintest first: the level-1 cell is eaten first, so its colour leads the bar.
+  assert.deepEqual(slices.map((m) => m[4]), ["#0E4429", "#39D353"]);
+  const barWidth = Number(svg.match(/<clipPath id="bar"><rect x="[\d.]+" y="[\d.]+" width="([\d.]+)"/)[1]);
+  assert.ok(Math.abs(Number(slices[1][2]) + Number(slices[1][3]) - (Number(slices[0][2]) + barWidth)) < 0.01, "slices span the bar exactly");
+  // A slice appears only once its cell has been eaten.
+  const { total } = timing(plan.steps);
+  const shownAt = Number(svg.match(/@keyframes b0\{0%,([\d.]+)%\{opacity:0\}/)[1]);
+  assert.ok(Math.abs(shownAt - ((plan.eaten[0].step - 0.5) * 90 * 100) / total) < 0.001);
+  assert.match(svg, /\{\.c,\.g,\.s,\.b\{animation:none\}\}/);
+});
+
+test("progress bar is an empty track when nothing was eaten", () => {
+  const grid = buildGrid(calendarFrom([full(() => 0)]));
+  const svg = renderSnake(grid, planRun(grid), { themeName: "light", login: "someone" });
+  assert.equal((svg.match(/class="b"/g) ?? []).length, 0);
+  assert.match(svg, /<clipPath id="bar">/);
 });

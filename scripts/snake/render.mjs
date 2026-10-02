@@ -18,6 +18,8 @@ const PITCH = 12;
 // Wide enough to show the one-cell ring the snake roams around the grid.
 const MARGIN = 6 + PITCH;
 const STEP_MS = 90;
+const BAR_HEIGHT = 8;
+const BAR_GAP = 2;
 const FADE_IN_MS = 300;
 const HOLD_MS = 2000;
 const FADE_OUT_MS = 800;
@@ -70,7 +72,11 @@ export function renderSnake(grid, plan, { themeName, login }) {
 
   const { fadeStart, total } = timing(plan.steps);
   const width = MARGIN * 2 + grid.columns * PITCH - (PITCH - CELL);
-  const height = MARGIN * 2 + ROWS * PITCH - (PITCH - CELL);
+  // The progress bar sits under the ring the snake roams, spanning the grid's width.
+  const barX = MARGIN;
+  const barY = MARGIN + (ROWS + 1) * PITCH + BAR_GAP;
+  const barWidth = grid.columns * PITCH - (PITCH - CELL);
+  const height = barY + BAR_HEIGHT + MARGIN - PITCH;
   const eatenAt = new Map(plan.eaten.map((e) => [`${e.x},${e.y}`, e.step]));
 
   const rules = [];
@@ -86,6 +92,17 @@ export function renderSnake(grid, plan, { themeName, login }) {
     return `<rect class="c" style="animation-name:${name}" ${attrs}/>`;
   });
 
+  // Like snk's stack: each meal drops a slice of its colour onto the bar, in eating order.
+  const slice = plan.eaten.length ? barWidth / plan.eaten.length : 0;
+  const bar = plan.eaten.map((meal, i) => {
+    const name = `b${i}`;
+    const shown = (meal.step - 0.5) * STEP_MS;
+    rules.push(`@keyframes ${name}{0%,${pct(shown, total)}{opacity:0}${pct(shown + 1, total)},100%{opacity:1}}`);
+    // Each slice overlaps the next by half a pixel so no seams show between them.
+    const w = i === plan.eaten.length - 1 ? slice : slice + 0.5;
+    return `<rect class="b" style="animation-name:${name}" x="${Number((barX + i * slice).toFixed(2))}" y="${barY}" width="${Number(w.toFixed(2))}" height="${BAR_HEIGHT}" fill="${t.levels[meal.level - 1]}"/>`;
+  });
+
   const title = `Snake eating ${login}'s contribution graph, faintest days first, growing from ${plan.startLength} to ${plan.finalLength} segments as it eats each active day`;
   const duration = `${total}ms`;
 
@@ -93,14 +110,18 @@ export function renderSnake(grid, plan, { themeName, login }) {
 <title id="title">${escapeXml(title)}</title>
 <style>
 .c{animation:${duration} linear infinite}
+.b{opacity:0;animation:${duration} linear infinite}
 .g{opacity:0;animation:fade ${duration} linear infinite}
 .s{animation:grow ${duration} linear infinite}
 @keyframes fade{0%{opacity:0}${pct(FADE_IN_MS, total)},${pct(fadeStart, total)}{opacity:1}100%{opacity:0}}
 @keyframes grow{${snakeKeyframes(plan, total)}}
 ${rules.join("\n")}
-@media (prefers-reduced-motion: reduce){.c,.g,.s{animation:none}}
+@media (prefers-reduced-motion: reduce){.c,.g,.s,.b{animation:none}}
 </style>
 ${rects.join("\n")}
+<clipPath id="bar"><rect x="${barX}" y="${barY}" width="${barWidth}" height="${BAR_HEIGHT}" rx="2"/></clipPath>
+<rect x="${barX}" y="${barY}" width="${barWidth}" height="${BAR_HEIGHT}" rx="2" fill="${t.empty}"/>
+<g class="g" clip-path="url(#bar)">${bar.join("")}</g>
 <g class="g"><path class="s" d="${routePath(plan.route)}" fill="none" stroke="${t.snake}" stroke-width="${CELL - 1}" stroke-linecap="round" stroke-linejoin="round"/></g>
 </svg>
 `;
