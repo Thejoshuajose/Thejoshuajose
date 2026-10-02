@@ -15,7 +15,8 @@ export const THEMES = {
 
 const CELL = 10;
 const PITCH = 12;
-const MARGIN = 6;
+// Wide enough to show the one-cell ring the snake roams around the grid.
+const MARGIN = 6 + PITCH;
 const STEP_MS = 90;
 const FADE_IN_MS = 300;
 const HOLD_MS = 2000;
@@ -30,14 +31,14 @@ export function timing(steps) {
   return { move, fadeStart, total: fadeStart + FADE_OUT_MS };
 }
 
-// Keep only the corners: every step has the same length, so dropping collinear points leaves
-// the path length (and therefore the dash maths) unchanged.
+// Keep only the corners: every step has the same length, so dropping points that continue
+// straight on leaves the path length (and therefore the dash maths) unchanged.
 export function routePath(route) {
   const points = route.filter((p, i) => {
     if (i === 0 || i === route.length - 1) return true;
     const a = route[i - 1];
     const b = route[i + 1];
-    return (p.x - a.x) * (b.y - p.y) !== (p.y - a.y) * (b.x - p.x);
+    return p.x - a.x !== b.x - p.x || p.y - a.y !== b.y - p.y;
   });
   return points.map((p, i) => `${i === 0 ? "M" : "L"}${center(p.x)} ${center(p.y)}`).join("");
 }

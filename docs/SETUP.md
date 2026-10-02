@@ -19,7 +19,7 @@ Thejoshuajose/
 │   └── SETUP.md                  # this file
 ├── scripts/
 │   ├── snake/
-│   │   ├── plan.mjs              # calendar → grid → route → growth timeline (pure)
+│   │   ├── plan.mjs              # calendar → grid → snk-style hunt with collision-safe growth (pure)
 │   │   ├── render.mjs            # animated SVG: one stroked path whose dash grows as it eats
 │   │   └── generate.mjs          # CLI entry used by snake.yml
 │   └── stats/

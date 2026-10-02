@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { buildGrid, buildRoute, planRun, ROWS } from "../scripts/snake/plan.mjs";
+import { buildGrid, inBounds, initialBody, planRun, planWithCap, ROWS } from "../scripts/snake/plan.mjs";
 import { renderSnake, routePath, timing } from "../scripts/snake/render.mjs";
 import { buildSnakes, fetchCalendar, main } from "../scripts/snake/generate.mjs";
 
@@ -31,32 +31,60 @@ test("buildGrid rejects malformed calendars loudly", () => {
   assert.throws(() => buildGrid({ weeks: [{ contributionDays: [dup, dup] }] }), /Duplicate day/);
 });
 
-test("route snakes down even weeks and up odd weeks without revisiting a cell", () => {
-  const route = buildRoute(3, 2);
-  assert.deepEqual(route.slice(0, 3), [{ x: 0, y: -2 }, { x: 0, y: -1 }, { x: 0, y: 0 }]);
-  assert.deepEqual(route[2 + ROWS], { x: 1, y: ROWS - 1 });
-  assert.deepEqual(route.at(-1), { x: 2, y: ROWS - 1 });
-  assert.equal(new Set(route.map((p) => `${p.x},${p.y}`)).size, route.length);
+// Replays a plan and checks every rule the animation relies on.
+function assertValidRun(grid, plan) {
+  const { route, frames } = plan;
   for (let i = 1; i < route.length; i += 1) {
     assert.equal(Math.abs(route[i].x - route[i - 1].x) + Math.abs(route[i].y - route[i - 1].y), 1, `step ${i} is not adjacent`);
+    assert.ok(inBounds(grid.columns, route[i]), `step ${i} leaves the field`);
   }
+  for (let i = 0; i < frames.length; i += 1) {
+    const { head, length } = frames[i];
+    assert.ok(head - length + 1 >= 0, "tail must stay on the route");
+    const body = route.slice(head - length + 1, head + 1).map((p) => `${p.x},${p.y}`);
+    assert.equal(new Set(body).size, body.length, `snake overlaps itself at frame ${i}`);
+    if (i > 0) {
+      const ate = plan.eaten.some((e) => e.step === i);
+      assert.ok(length - frames[i - 1].length === (ate && length > frames[i - 1].length ? 1 : 0), `frame ${i} grows without eating`);
+    }
+  }
+  const food = grid.cells.filter((c) => c.level > 0).map((c) => `${c.x},${c.y}`).sort();
+  assert.deepEqual(plan.eaten.map((e) => `${e.x},${e.y}`).sort(), food, "every active day is eaten exactly once");
+}
+
+test("snake starts coiled in the left ring with its head at the top", () => {
+  assert.deepEqual(initialBody(3), [{ x: -1, y: 1 }, { x: -1, y: 0 }, { x: -1, y: -1 }]);
 });
 
-test("snake grows by exactly one segment per active day it eats", () => {
-  const levels = [full((y) => (y === 3 ? 1 : 0)), full(() => 4), full(() => 0)];
-  const plan = planRun(buildGrid(calendarFrom(levels)), { startLength: 3 });
+test("snake grows by exactly one segment per active day and never overlaps itself", () => {
+  const levels = [full((y) => (y === 3 ? 1 : 0)), full(() => 4), full((y) => y % 3), full(() => 0), full((y) => (y > 4 ? 2 : 0))];
+  const grid = buildGrid(calendarFrom(levels));
+  const plan = planRun(grid, { startLength: 3 });
+  assertValidRun(grid, plan);
+  const meals = grid.cells.filter((c) => c.level > 0).length;
+  assert.equal(plan.finalLength, 3 + meals);
+});
 
-  assert.equal(plan.eaten.length, 1 + ROWS);
-  assert.equal(plan.finalLength, 3 + 1 + ROWS);
-  assert.equal(plan.steps, 3 * ROWS);
-  for (let i = 1; i < plan.frames.length; i += 1) {
-    const { head, length } = plan.frames[i];
-    const ate = plan.eaten.some((e) => e.step === i);
-    assert.equal(length - plan.frames[i - 1].length, ate ? 1 : 0, `frame ${i}`);
-    assert.ok(head - length + 1 >= 0, "tail must stay on the route");
-  }
-  // The first meal is week 0, weekday 3: the fourth grid cell after the three waiting segments.
-  assert.deepEqual(plan.eaten[0], { x: 0, y: 3, level: 1, step: 4 });
+test("snake hunts the faintest cells first, like snk", () => {
+  const grid = buildGrid(calendarFrom([full((y) => (y === 0 ? 4 : 0)), full(() => 0), full((y) => (y === 6 ? 1 : 0))]));
+  const plan = planRun(grid);
+  // The level-4 cell is right beside the start; the level-1 cell is across the grid, yet it goes first.
+  assert.deepEqual(plan.eaten.map((e) => e.level), [1, 4]);
+});
+
+test("a year with every day active still clears the grid without collisions", () => {
+  const grid = buildGrid(calendarFrom(Array.from({ length: 53 }, () => full((y) => 1 + ((y * 7) % 4)))));
+  const plan = planRun(grid);
+  assertValidRun(grid, plan);
+  assert.ok(plan.finalLength > 3, "it still grows");
+});
+
+test("growth cap stops lengthening but the snake keeps eating", () => {
+  const grid = buildGrid(calendarFrom([full(() => 2), full(() => 2)]));
+  const plan = planWithCap(grid, { startLength: 3, maxLength: 6 });
+  assertValidRun(grid, plan);
+  assert.equal(plan.finalLength, 6);
+  assert.equal(plan.eaten.length, 2 * ROWS);
 });
 
 test("an empty year still crosses the grid without growing", () => {
@@ -67,11 +95,12 @@ test("an empty year still crosses the grid without growing", () => {
 
 test("planRun rejects nonsense start lengths", () => {
   const grid = buildGrid(calendarFrom([full(() => 0)]));
-  for (const startLength of [0, -1, 1.5, "3"]) assert.throws(() => planRun(grid, { startLength }), /positive integer/);
+  for (const startLength of [0, -1, 1.5, "3", ROWS + 3]) assert.throws(() => planRun(grid, { startLength }), /startLength must be an integer/);
 });
 
-test("routePath keeps only corners", () => {
-  assert.equal(routePath([{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 2 }, { x: 1, y: 2 }]), "M11 11L11 35L23 35");
+test("routePath keeps only corners and never drops a reversal", () => {
+  assert.equal(routePath([{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 2 }, { x: 1, y: 2 }]), "M23 23L23 47L35 47");
+  assert.equal(routePath([{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 0 }]), "M23 23L23 35L23 23");
 });
 
 function parseGrow(svg) {
