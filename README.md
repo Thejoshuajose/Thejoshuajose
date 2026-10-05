@@ -5,7 +5,7 @@
 -->
 
 <p align="center">
-  <img src="./assets/banner.svg" width="100%" alt="JOSH — Full Stack Developer. Building full-stack products from interface to infrastructure." />
+  <img src="./assets/banner.svg" width="100%" alt="Terminal banner: whoami prints JOSH, Full Stack Developer, then a deploy from idea to production checks off interface, API, mobile, data and cloud and goes live." />
 </p>
 
 <p align="center">

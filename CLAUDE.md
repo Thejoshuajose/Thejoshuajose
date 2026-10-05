@@ -13,7 +13,7 @@ The GitHub profile README repository for `Thejoshuajose`. `README.md` **is** the
 ## Layout
 
 - `README.md`: profile content. A top HTML comment holds the ownership and setup pointer, so it stays invisible on the profile.
-- `assets/banner.svg`: hand-written SVG. System font stacks only, because GitHub serves SVGs as `<img>` and they can't load web fonts. Animations must sit behind `prefers-reduced-motion`.
+- `assets/banner.svg`: hand-written SVG. System font stacks only, because GitHub serves SVGs as `<img>` and they can't load web fonts. Animations must sit behind `prefers-reduced-motion`. It is a terminal window on a 12 s loop (typed `whoami`, then a `deploy` that ticks off each layer). The resting state is the finished screen and animations only hide or reveal, so with motion off everything is visible. Typing uses `.cover` rects in the window colour that shrink with `steps(n)`, where n is the character count; keep cover widths matched to the text.
 - `scripts/stats/`: `aggregate.mjs` (pure maths), `github.mjs` (GraphQL client), `render.mjs` (SVG), `generate.mjs` (CLI)
 - `scripts/snake/`: `plan.mjs` (grid, route, growth timeline), `render.mjs` (animated SVG), `generate.mjs` (CLI). Reuses the stats GraphQL client and `escapeXml`.
 - `.github/workflows/`: `snake.yml` → `output` branch, `stats.yml` → `stats` branch, `test.yml`

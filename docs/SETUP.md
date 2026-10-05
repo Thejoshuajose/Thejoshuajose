@@ -14,7 +14,7 @@ Thejoshuajose/
 ├── package.json                  # npm test / npm run stats (no dependencies)
 ├── .gitignore
 ├── assets/
-│   └── banner.svg                # hero banner (self-contained, animated, respects reduced motion)
+│   └── banner.svg                # terminal-session hero banner (self-contained, animated, respects reduced motion)
 ├── docs/
 │   └── SETUP.md                  # this file
 ├── scripts/

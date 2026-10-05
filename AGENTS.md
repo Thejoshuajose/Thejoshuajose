@@ -9,7 +9,7 @@ This repository is rendered by GitHub as the profile page for the `Thejoshuajose
 ## Stack
 
 - Markdown with a small amount of GitHub-safe HTML (`<p align>`, `<picture>`, `<img>`, `<sub>`)
-- A hand-authored SVG banner (`assets/banner.svg`)
+- A hand-authored SVG banner (`assets/banner.svg`): an animated terminal session that respects reduced motion
 - Dependency-free Node.js (≥ 22, ES modules) generators for the stat cards (`scripts/stats/`) and the growing contribution snake (`scripts/snake/`)
 - GitHub Actions: `crazy-max/ghaction-github-pages` to publish generated SVGs to the `output` and `stats` branches
 
