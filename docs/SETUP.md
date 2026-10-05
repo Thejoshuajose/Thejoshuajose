@@ -44,7 +44,7 @@ Branches written by CI (never edit by hand):
 
 ### Why the stat cards are self-generated
 
-Almost every repository on this account is private client work. The public GitHub Readme Stats instance only sees public repositories, so its language card would describe a handful of coursework repos instead of the real stack, and its shared hosted instance is rate-limited. `stats.yml` builds the cards from the GraphQL API on a schedule instead. That way the README doesn't depend on a third-party server, and the numbers include private work. Each card shows its scope ("public + private" or "public repositories") and the language card says it measures composition, not proficiency.
+Almost every repository on this account is private client work. The public GitHub Readme Stats instance only sees public repositories, so its language card would describe a handful of coursework repos instead of the real stack, and its shared hosted instance is rate-limited. `stats.yml` builds the cards from the GraphQL API on a schedule instead. That way the README doesn't depend on a third-party server, and the numbers include private work. Each card shows its scope ("public + private" or "public repositories").
 
 ## 1. Create the profile repository
 

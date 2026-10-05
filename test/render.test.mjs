@@ -64,7 +64,7 @@ test("languages card escapes names and includes a composition disclaimer", () =>
   assert.ok(!svg.includes("<b>"));
   assert.ok(svg.includes("70.0%"));
   assert.ok(svg.includes("across 31 owned repositories"));
-  assert.ok(svg.includes("composition, not proficiency"));
+  assert.ok(svg.includes("repositories · markup excluded</text>"), "footnote ends at the scope, with no proficiency disclaimer");
 });
 
 test("languages card renders an empty state", () => {

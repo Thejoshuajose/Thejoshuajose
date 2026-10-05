@@ -142,7 +142,7 @@ export function renderLanguagesCard(languages, { themeName = "dark", repoCount, 
     : "";
 
   const footY = 108 + rows * 28 + 6;
-  const footnote = `\n  <text x="${PAD}" y="${footY}" font-family="${MONO}" font-size="10" fill="${t.muted}">Share of code by bytes across ${formatNumber(repoCount)} owned repositories · markup excluded · composition, not proficiency</text>`;
+  const footnote = `\n  <text x="${PAD}" y="${footY}" font-family="${MONO}" font-size="10" fill="${t.muted}">Share of code by bytes across ${formatNumber(repoCount)} owned repositories · markup excluded</text>`;
 
   const summary = languages.map((l) => `${l.name} ${l.percent.toFixed(1)}%`).join(", ") || "no data";
   return frame(
