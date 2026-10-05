@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { buildGrid, inBounds, initialBody, planRun, planWithCap, ROWS } from "../scripts/snake/plan.mjs";
-import { headMotion, renderSnake, routePath, segments, TAPER, timing } from "../scripts/snake/render.mjs";
+import { headKeyframes, renderSnake, routePath, segments, TAPER, timing } from "../scripts/snake/render.mjs";
 import { buildSnakes, fetchCalendar, main } from "../scripts/snake/generate.mjs";
 
 const LEVEL_NAMES = ["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"];
@@ -148,7 +148,7 @@ test("render respects reduced motion, escapes the login and rejects unknown them
   const grid = buildGrid(calendarFrom([full(() => 1)]));
   const plan = planRun(grid);
   const svg = renderSnake(grid, plan, { themeName: "dark", login: `<x>"` });
-  assert.match(svg, /@media \(prefers-reduced-motion: reduce\)\{\.c,\.g,\.s,\.b\{animation:none\}\}/);
+  assert.match(svg, /@media \(prefers-reduced-motion: reduce\)\{\.c,\.g,\.s,\.b,\.hd,\.tg\{animation:none\}\}/);
   assert.match(svg, /\.g\{opacity:0;/, "snake is hidden when animations are off");
   assert.ok(svg.includes("&lt;x&gt;&quot;"));
   assert.ok(!svg.includes("<x>"));
@@ -201,7 +201,7 @@ test("progress bar gets one slice per meal, in eating order, coloured by level",
   const { total } = timing(plan.steps);
   const shownAt = Number(svg.match(/@keyframes b0\{0%,([\d.]+)%\{opacity:0\}/)[1]);
   assert.ok(Math.abs(shownAt - ((plan.eaten[0].step - 0.5) * 90 * 100) / total) < 0.001);
-  assert.match(svg, /\{\.c,\.g,\.s,\.b\{animation:none\}\}/);
+  assert.match(svg, /\{\.c,\.g,\.s,\.b,\.hd,\.tg\{animation:none\}\}/);
 });
 
 test("progress bar is an empty track when nothing was eaten", () => {
@@ -248,27 +248,95 @@ test("rendered tail pieces stay joined to the body in every keyframe", () => {
   assert.equal((svg.match(/class="s"/g) ?? []).length, 4, "tail tip, tail, body and dorsal stripe");
 });
 
-test("head rides the route to its end, turning with it, then waits", () => {
-  const grid = buildGrid(calendarFrom([full((y) => (y < 3 ? 1 : 0))]));
+function parseHead(css) {
+  return [...css.matchAll(/([\d.]+)%\{transform:translate\((-?[\d.]+)px,(-?[\d.]+)px\) rotate\((-?[\d.]+)deg\)\}/g)].map((m) => ({
+    at: Number(m[1]),
+    x: Number(m[2]),
+    y: Number(m[3]),
+    angle: Number(m[4]),
+  }));
+}
+
+const px = (n) => 18 + n * 12 + 5;
+
+test("head keyframes keep it on the route, at the body's pace, turning only at corners", () => {
+  const grid = buildGrid(calendarFrom([full((y) => y % 2), full(() => 2), full((y) => (y === 6 ? 3 : 0))]));
   const plan = planRun(grid);
   const { total, move } = timing(plan.steps);
-  const motion = headMotion(plan, total);
-  const [from, to, hold] = motion.keyPoints.split(";").map(Number);
-  assert.ok(Math.abs(from - (plan.startLength - 1) / (plan.route.length - 1)) < 1e-6);
-  assert.equal(to, 1);
-  assert.equal(hold, 1);
-  assert.equal(motion.keyTimes, `0;${Number((move / total).toFixed(6))};1`);
-  const svg = renderSnake(grid, plan, { themeName: "dark", login: "someone" });
-  assert.match(svg, /<animateMotion path="M[^"]+" dur="\d+ms" repeatCount="indefinite" rotate="auto" calcMode="linear"/);
-  assert.equal((svg.match(/fill="#F0F6FC"/g) ?? []).length, 2, "two eyes");
+  const keys = parseHead(headKeyframes(plan, total));
+  const first = plan.frames[0].head;
+  const end = plan.route.at(-1);
+
+  assert.equal(keys[0].at, 0);
+  assert.deepEqual([keys[0].x, keys[0].y], [px(plan.route[first].x), px(plan.route[first].y)]);
+  assert.deepEqual([keys.at(-1).at, keys.at(-1).x, keys.at(-1).y], [100, px(end.x), px(end.y)]);
+  assert.equal(keys.at(-2).at, Number(((move / total) * 100).toFixed(4)), "arrives when the walk ends, then holds");
+
+  for (const k of keys) {
+    // Where the head should be at this moment, from the same step clock the body uses.
+    const pos = first + (k.at / 100) * total / 90;
+    const i = Math.min(Math.floor(pos), plan.route.length - 1);
+    const a = plan.route[i];
+    const b = plan.route[Math.min(i + 1, plan.route.length - 1)];
+    const f = pos - i;
+    assert.ok(Math.abs(k.x - (px(a.x) + (px(b.x) - px(a.x)) * f)) < 0.05, `x on route at ${k.at}%`);
+    assert.ok(Math.abs(k.y - (px(a.y) + (px(b.y) - px(a.y)) * f)) < 0.05, `y on route at ${k.at}%`);
+  }
+  for (let i = 1; i < keys.length; i += 1) {
+    assert.ok(keys[i].at >= keys[i - 1].at, "keyframes are ordered");
+    const turn = Math.abs(keys[i].angle - keys[i - 1].angle);
+    assert.ok(turn === 0 || turn === 90 || turn === 180, `turns by a quarter or a reversal, never spins (${turn})`);
+  }
+  assert.ok(keys.some((k, i) => i > 0 && k.angle !== keys[i - 1].angle), "the route does turn");
+  assertFacesTravel(plan, total, keys);
 });
 
-test("head stays put when there is nothing to eat and has no motion on a one-cell route", () => {
+// Every keyframe must point the head along the route edge it is on: the outgoing edge at a cell
+// (the incoming one at the very end), the current edge part-way between cells.
+function assertFacesTravel(plan, total, keys) {
+  const first = plan.frames[0].head;
+  const last = plan.route.length - 1;
+  for (const k of keys) {
+    const pos = Math.round((first + ((k.at / 100) * total) / 90) * 1e6) / 1e6;
+    const i = Math.min(Math.floor(pos), last);
+    const [a, b] = i < last ? [plan.route[i], plan.route[i + 1]] : [plan.route[i - 1], plan.route[i]];
+    const want = (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI;
+    assert.equal((((k.angle - want) % 360) + 360) % 360, 0, `faces ${want}° at ${k.at}%, got ${k.angle}°`);
+  }
+}
+
+test("head faces its first move even when that turns out of the starting coil", () => {
+  // One active cell at (0,0): the snake leaves its coil heading right, not up.
+  const grid = buildGrid(calendarFrom([[1, 0, 0, 0, 0, 0, 0]]));
+  const plan = planRun(grid);
+  const first = plan.frames[0].head;
+  const up = plan.route[first].y - plan.route[first - 1].y === -1;
+  const right = plan.route[first + 1].x - plan.route[first].x === 1;
+  assert.ok(up && right, "fixture really does turn at the starting cell");
+  const { total } = timing(plan.steps);
+  const keys = parseHead(headKeyframes(plan, total));
+  assert.equal(keys[0].angle, 0);
+  assertFacesTravel(plan, total, keys);
+});
+
+test("head shares the body's CSS clock: no SMIL anywhere in the snake", () => {
+  const grid = buildGrid(calendarFrom([full((y) => (y < 3 ? 1 : 0))]));
+  const svg = renderSnake(grid, planRun(grid), { themeName: "dark", login: "someone" });
+  assert.ok(!/<animate/.test(svg), "SMIL and CSS clocks drift apart independently");
+  assert.match(svg, /\.hd\{animation:hd \d+ms linear infinite\}/);
+  assert.match(svg, /<g class="hd">/);
+  assert.equal((svg.match(/fill="#F0F6FC"/g) ?? []).length, 2, "two eyes");
+  assert.match(svg, /\{\.c,\.g,\.s,\.b,\.hd,\.tg\{animation:none\}\}/);
+});
+
+test("head waits in place when there is nothing to eat, including on a one-cell route", () => {
   const grid = buildGrid(calendarFrom([full(() => 0)]));
   const plan = planRun(grid);
   assert.equal(plan.steps, 0);
-  assert.deepEqual(headMotion(plan, timing(0).total), { keyPoints: "1;1", keyTimes: "0;1" });
+  const keys = parseHead(headKeyframes(plan, timing(0).total));
+  assert.ok(keys.every((k) => k.x === keys[0].x && k.y === keys[0].y && k.angle === -90), "faces up, out of the coil");
   const tiny = planWithCap(grid, { startLength: 1 });
-  assert.equal(headMotion(tiny, timing(0).total), null);
-  assert.ok(!renderSnake(grid, tiny, { themeName: "light", login: "a" }).includes("animateMotion"));
+  const one = parseHead(headKeyframes(tiny, timing(0).total));
+  assert.ok(one.length >= 2 && one.every((k) => k.angle === -90 && k.x === px(-1)));
+  assert.ok(renderSnake(grid, tiny, { themeName: "light", login: "a" }).includes('<g class="hd">'));
 });

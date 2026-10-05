@@ -36,7 +36,7 @@ This repository is rendered by GitHub as the profile page for the `Thejoshuajose
 
 ## Generated branches
 
-- `output`: `github-contribution-grid-snake.svg`, `github-contribution-grid-snake-dark.svg` (every 12 h). The snake hunts cells snk-style (faintest first) and grows one segment per active day it eats. Every move is checked so it can't collide with itself or get boxed in. A progress bar under the grid fills with each eaten cell's colour. The snake has a head with eyes and a flicking tongue (SMIL `animateMotion`, turning at corners), a tapered tail and a dorsal stripe; the body pieces stay CSS dash animations so the file size scales with meals.
+- `output`: `github-contribution-grid-snake.svg`, `github-contribution-grid-snake-dark.svg` (every 12 h). The snake hunts cells snk-style (faintest first) and grows one segment per active day it eats. Every move is checked so it can't collide with itself or get boxed in. A progress bar under the grid fills with each eaten cell's colour. The snake has a head with eyes and a flicking tongue (CSS transform keyframes that swing it round each corner, on the same clock as the body; never SMIL), a tapered tail and a dorsal stripe; the body pieces stay CSS dash animations so the file size scales with meals.
 - `stats`: `activity.svg`, `activity-dark.svg`, `languages.svg`, `languages-dark.svg` (daily)
 
 Both are force-pushed by CI. Don't commit to them manually.
