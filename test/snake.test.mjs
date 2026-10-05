@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { buildGrid, inBounds, initialBody, planRun, planWithCap, ROWS } from "../scripts/snake/plan.mjs";
-import { renderSnake, routePath, timing } from "../scripts/snake/render.mjs";
+import { headMotion, renderSnake, routePath, segments, TAPER, timing } from "../scripts/snake/render.mjs";
 import { buildSnakes, fetchCalendar, main } from "../scripts/snake/generate.mjs";
 
 const LEVEL_NAMES = ["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"];
@@ -103,8 +103,8 @@ test("routePath keeps only corners and never drops a reversal", () => {
   assert.equal(routePath([{ x: 0, y: 0 }, { x: 0, y: 1 }, { x: 0, y: 0 }]), "M23 23L23 35L23 23");
 });
 
-function parseGrow(svg) {
-  const body = svg.match(/@keyframes grow\{(.*?)\}\}/)[1] + "}";
+function parseGrow(svg, piece = TAPER.length) {
+  const body = svg.match(new RegExp(`@keyframes s${piece}\\{(.*?)\\}\\}`))[1] + "}";
   return [...body.matchAll(/([\d.]+)%\{stroke-dasharray:([\d.]+)px ([\d.]+)px;stroke-dashoffset:(-?[\d.]+)px\}/g)].map((m) => ({
     at: Number(m[1]),
     dash: Number(m[2]),
@@ -121,8 +121,9 @@ test("rendered snake body only lengthens, never moves backwards, and ends at its
 
   assert.equal(keys[0].at, 0);
   assert.equal(keys.at(-1).at, 100);
-  assert.equal(keys[0].dash, (plan.startLength - 1) * 12);
-  assert.equal(keys.at(-1).dash, (plan.finalLength - 1) * 12);
+  // The body starts where the tapered tail ends.
+  assert.equal(keys[0].dash, (plan.startLength - 1 - TAPER.length) * 12);
+  assert.equal(keys.at(-1).dash, (plan.finalLength - 1 - TAPER.length) * 12);
   for (let i = 1; i < keys.length; i += 1) {
     assert.ok(keys[i].at >= keys[i - 1].at, "keyframes are ordered");
     assert.ok(keys[i].dash >= keys[i - 1].dash, "body never shrinks");
@@ -208,4 +209,66 @@ test("progress bar is an empty track when nothing was eaten", () => {
   const svg = renderSnake(grid, planRun(grid), { themeName: "light", login: "someone" });
   assert.equal((svg.match(/class="b"/g) ?? []).length, 0);
   assert.match(svg, /<clipPath id="bar">/);
+});
+
+test("segments split the snake into a tapered tail and a body that meet end to end", () => {
+  assert.deepEqual(segments({ head: 10, length: 6 }), [
+    { from: 5, to: 6 },
+    { from: 6, to: 7 },
+    { from: 7, to: 10 },
+  ]);
+  // Shorter than the taper: pieces collapse onto the head instead of running ahead of it.
+  assert.deepEqual(segments({ head: 4, length: 2 }), [
+    { from: 3, to: 4 },
+    { from: 4, to: 4 },
+    { from: 4, to: 4 },
+  ]);
+  assert.deepEqual(segments({ head: 0, length: 1 }), [
+    { from: 0, to: 0 },
+    { from: 0, to: 0 },
+    { from: 0, to: 0 },
+  ]);
+});
+
+test("rendered tail pieces stay joined to the body in every keyframe", () => {
+  const grid = buildGrid(calendarFrom([full((y) => y % 2), full(() => 2), full((y) => (y === 6 ? 3 : 0))]));
+  const plan = planRun(grid);
+  const svg = renderSnake(grid, plan, { themeName: "dark", login: "someone" });
+  const pieces = [0, 1, 2].map((i) => parseGrow(svg, i));
+  assert.equal(new Set(pieces.map((k) => k.length)).size, 1, "all pieces share keyframe times");
+  pieces[0].forEach((_, j) => {
+    for (let i = 0; i < 2; i += 1) {
+      const a = pieces[i][j];
+      const b = pieces[i + 1][j];
+      assert.equal(a.at, b.at);
+      assert.ok(a.dash <= 12, "taper pieces are one step long");
+      assert.equal(-a.offset + a.dash, -b.offset, "each piece ends where the next starts");
+    }
+  });
+  assert.equal((svg.match(/class="s"/g) ?? []).length, 4, "tail tip, tail, body and dorsal stripe");
+});
+
+test("head rides the route to its end, turning with it, then waits", () => {
+  const grid = buildGrid(calendarFrom([full((y) => (y < 3 ? 1 : 0))]));
+  const plan = planRun(grid);
+  const { total, move } = timing(plan.steps);
+  const motion = headMotion(plan, total);
+  const [from, to, hold] = motion.keyPoints.split(";").map(Number);
+  assert.ok(Math.abs(from - (plan.startLength - 1) / (plan.route.length - 1)) < 1e-6);
+  assert.equal(to, 1);
+  assert.equal(hold, 1);
+  assert.equal(motion.keyTimes, `0;${Number((move / total).toFixed(6))};1`);
+  const svg = renderSnake(grid, plan, { themeName: "dark", login: "someone" });
+  assert.match(svg, /<animateMotion path="M[^"]+" dur="\d+ms" repeatCount="indefinite" rotate="auto" calcMode="linear"/);
+  assert.equal((svg.match(/fill="#F0F6FC"/g) ?? []).length, 2, "two eyes");
+});
+
+test("head stays put when there is nothing to eat and has no motion on a one-cell route", () => {
+  const grid = buildGrid(calendarFrom([full(() => 0)]));
+  const plan = planRun(grid);
+  assert.equal(plan.steps, 0);
+  assert.deepEqual(headMotion(plan, timing(0).total), { keyPoints: "1;1", keyTimes: "0;1" });
+  const tiny = planWithCap(grid, { startLength: 1 });
+  assert.equal(headMotion(tiny, timing(0).total), null);
+  assert.ok(!renderSnake(grid, tiny, { themeName: "light", login: "a" }).includes("animateMotion"));
 });

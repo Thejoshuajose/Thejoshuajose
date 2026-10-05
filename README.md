@@ -31,6 +31,28 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 - **Cloud infrastructure:** AWS Elastic Beanstalk, Secrets Manager, DNS, TLS and CI/CD with GitHub Actions
 - **Business software:** web, mobile and desktop tools that run day-to-day operations for real companies
 
+## Development activity
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/activity-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/activity.svg" />
+  <img src="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/activity-dark.svg" width="100%" alt="Development activity: total contributions, contributions and active days this year, and current and longest streaks, including private work." />
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/languages-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/languages.svg" />
+  <img src="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/languages-dark.svg" width="100%" alt="Repository language composition by bytes of code across owned repositories. This shows what the code is written in, not a measure of proficiency." />
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake.svg" />
+  <img src="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake-dark.svg" width="100%" alt="Animated snake eating its way across the GitHub contribution graph, growing longer with every active day it eats." />
+</picture>
+
+<sub>Cards are generated daily from the GitHub API by this repository's own workflows. They count private work, so the numbers are higher than what the public repositories alone would show.</sub>
+
 ## Technologies
 
 **Frontend**<br />
@@ -73,28 +95,6 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 **Cloud infrastructure**: AWS deployments, environment configuration and secrets, DNS, SSL/TLS, application hosting and CI/CD.
 
 **Product engineering**: turning a business requirement into software people use every day, then maintaining it.
-
-## Development activity
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/activity-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/activity.svg" />
-  <img src="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/activity-dark.svg" width="100%" alt="Development activity: total contributions, contributions and active days this year, and current and longest streaks, including private work." />
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/languages-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/languages.svg" />
-  <img src="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/languages-dark.svg" width="100%" alt="Repository language composition by bytes of code across owned repositories. This shows what the code is written in, not a measure of proficiency." />
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake.svg" />
-  <img src="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/output/github-contribution-grid-snake-dark.svg" width="100%" alt="Animated snake eating its way across the GitHub contribution graph, growing longer with every active day it eats." />
-</picture>
-
-<sub>Cards are generated daily from the GitHub API by this repository's own workflows. They count private work, so the numbers are higher than what the public repositories alone would show.</sub>
 
 ## Currently building
 
