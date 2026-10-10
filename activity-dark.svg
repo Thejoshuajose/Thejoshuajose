@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="190" viewBox="0 0 800 190" role="img" aria-labelledby="title">
+  <title id="title">Development activity: 7,434 total contributions, current streak 61 days, longest streak 61 days</title>
+  <rect x="0.5" y="0.5" width="799" height="189" rx="12" fill="#161B22" stroke="#21262D"/>
+  <rect x="32" y="30" width="3" height="12" rx="1.5" fill="#2563EB"/>
+  <text x="44" y="40" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" letter-spacing="2" fill="#8B949E">DEVELOPMENT ACTIVITY</text>
+  <text x="768" y="40" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" fill="#8B949E">public + private</text>
+  <text x="32" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#F0F6FC">7,434</text>
+  <text x="32" y="134" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" fill="#F0F6FC">Total contributions</text>
+  <text x="32" y="152" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="10" fill="#8B949E">All time</text>
+  <line x1="179.2" y1="78" x2="179.2" y2="150" stroke="#21262D"/>
+  <text x="195.2" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#F0F6FC">4,522</text>
+  <text x="195.2" y="134" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" fill="#F0F6FC">Contributions</text>
+  <text x="195.2" y="152" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="10" fill="#8B949E">2026</text>
+  <line x1="326.4" y1="78" x2="326.4" y2="150" stroke="#21262D"/>
+  <text x="342.4" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#F0F6FC">143</text>
+  <text x="342.4" y="134" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" fill="#F0F6FC">Active days</text>
+  <text x="342.4" y="152" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="10" fill="#8B949E">2026</text>
+  <line x1="473.59999999999997" y1="78" x2="473.59999999999997" y2="150" stroke="#21262D"/>
+  <text x="489.59999999999997" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#2563EB">61d</text>
+  <text x="489.59999999999997" y="134" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" fill="#F0F6FC">Current streak</text>
+  <text x="489.59999999999997" y="152" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="10" fill="#8B949E">Aug 10 – Oct 9, 2026</text>
+  <line x1="620.8" y1="78" x2="620.8" y2="150" stroke="#21262D"/>
+  <text x="636.8" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#F0F6FC">61d</text>
+  <text x="636.8" y="134" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" fill="#F0F6FC">Longest streak</text>
+  <text x="636.8" y="152" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="10" fill="#8B949E">Aug 10 – Oct 9, 2026</text>
+</svg>
