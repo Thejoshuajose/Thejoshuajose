@@ -20,6 +20,7 @@ This repository is rendered by GitHub as the profile page for the `Thejoshuajose
 | Run tests | `npm test` |
 | Preview stat cards locally | `GH_STATS_TOKEN=<token> npm run stats` (writes to `dist/`, gitignored) |
 | Preview the snake locally | `GH_STATS_TOKEN=<token> npm run snake` (writes to `dist/`) |
+| Refresh the committed badges | `npm run badges` (reads `scripts/badges/badges.json`, writes `assets/badges/`) |
 | Lint workflows | `actionlint` (or the `rhysd/actionlint` Docker image) |
 
 ## Rules for changes
@@ -29,7 +30,7 @@ This repository is rendered by GitHub as the profile page for the `Thejoshuajose
 3. Don't showcase repositories. No project section, repo names, repo links or pins, and don't modify other repositories. Contact email is `admin@fiwbsolution.com`.
 4. Every image needs descriptive alt text, and the README must still read correctly when every image fails to load.
 5. Keep layouts single-column or naturally wrapping. No fixed pixel widths wider than a phone screen, and no side-by-side cards.
-6. Badges use Shields `for-the-badge` on `161B22` with white logos. Keep the set to about 19 technologies, grouped by category (Frontend, Backend, Mobile, Desktop, Data, Cloud and DevOps).
+6. Badges use Shields `for-the-badge` on `161B22` with white logos, committed as static SVGs in `assets/badges/` (generated from `scripts/badges/badges.json` by `npm run badges`). Never hot-link `img.shields.io` in the README: GitHub's image proxy times out on slow Shields responses and shows broken images. Keep the set to about 19 technologies, grouped by category (Frontend, Backend, Mobile, Desktop, Data, Cloud and DevOps).
 7. Changes under `scripts/` need tests in `test/` covering the happy path, edge cases and failure modes. `npm test` must pass.
 8. Third-party GitHub Actions stay pinned to full commit SHAs. Workflows declare minimal `permissions`.
 9. Never commit tokens, `.env` files or generated `dist/` output. The stats token is supplied only through the `METRICS_TOKEN` Actions secret.

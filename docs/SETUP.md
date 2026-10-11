@@ -11,13 +11,17 @@ Thejoshuajose/
 ├── README.md                     # the profile page itself
 ├── CLAUDE.md                     # instructions for Claude Code
 ├── AGENTS.md                     # the same guidance for any AI agent
-├── package.json                  # npm test / npm run stats (no dependencies)
+├── package.json                  # npm test / stats / snake / badges (no dependencies)
 ├── .gitignore
 ├── assets/
+│   ├── badges/                   # committed Shields badges (npm run badges)
 │   └── banner.svg                # terminal-session hero banner (self-contained, animated, respects reduced motion)
 ├── docs/
 │   └── SETUP.md                  # this file
 ├── scripts/
+│   ├── badges/
+│   │   ├── badges.json           # slug → Shields URL manifest
+│   │   └── generate.mjs          # downloads + validates badges into assets/badges/
 │   ├── snake/
 │   │   ├── plan.mjs              # calendar → grid → snk-style hunt with collision-safe growth (pure)
 │   │   ├── render.mjs            # animated SVG: growing snake (head, tapered tail) + snk-style progress bar

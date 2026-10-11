@@ -17,9 +17,9 @@
 </p>
 
 <p align="center">
-  <a href="https://fiwbsolutions.com"><img src="https://img.shields.io/badge/Website-2563EB?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGNpcmNsZSBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjeD0iMTIiIGN5PSIxMiIgcj0iOSIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0zIDEyaDE4TTEyIDNjMi41IDIuNiAzLjggNS42IDMuOCA5cy0xLjMgNi40LTMuOCA5Yy0yLjUtMi42LTMuOC01LjYtMy44LTlTOS41IDUuNiAxMiAzeiIvPjwvc3ZnPg==" alt="Website: fiwbsolutions.com" /></a>
-  <a href="https://www.linkedin.com/in/joshua-j-gonzales"><img src="https://img.shields.io/badge/LinkedIn-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgeD0iMyIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMyIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik04IDEwLjVWMTZNOCA3Ljh2LjFNMTEuNSAxNnYtNS41TTExLjUgMTNjMC0xLjUgMS0yLjYgMi40LTIuNnMyLjMgMSAyLjMgMi42VjE2Ii8+PC9zdmc+" alt="LinkedIn: joshua-j-gonzales" /></a>
-  <a href="mailto:admin@fiwbsolution.com"><img src="https://img.shields.io/badge/Email-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgeD0iMyIgeT0iNSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE0IiByeD0iMiIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0zLjUgNi41IDEyIDEzbDguNS02LjUiLz48L3N2Zz4=" alt="Email: admin@fiwbsolution.com" /></a>
+  <a href="https://fiwbsolutions.com"><img src="assets/badges/website.svg" alt="Website: fiwbsolutions.com" /></a>
+  <a href="https://www.linkedin.com/in/joshua-j-gonzales"><img src="assets/badges/linkedin.svg" alt="LinkedIn: joshua-j-gonzales" /></a>
+  <a href="mailto:admin@fiwbsolution.com"><img src="assets/badges/email.svg" alt="Email: admin@fiwbsolution.com" /></a>
 </p>
 
 <br />
@@ -56,35 +56,35 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 ## Technologies
 
 **Frontend**<br />
-<img src="https://img.shields.io/badge/React-161B22?style=for-the-badge&logo=react&logoColor=white" alt="React" />
-<img src="https://img.shields.io/badge/TypeScript-161B22?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-<img src="https://img.shields.io/badge/Tailwind_CSS-161B22?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-<img src="https://img.shields.io/badge/GSAP-161B22?style=for-the-badge&logo=gsap&logoColor=white" alt="GSAP" />
+<img src="assets/badges/react.svg" alt="React" />
+<img src="assets/badges/typescript.svg" alt="TypeScript" />
+<img src="assets/badges/tailwind-css.svg" alt="Tailwind CSS" />
+<img src="assets/badges/gsap.svg" alt="GSAP" />
 
 **Backend**<br />
-<img src="https://img.shields.io/badge/C%23-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTTEyIDJsOC43IDV2MTBMMTIgMjJsLTguNy01Vjd6Ii8+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTTExLjYgOS4zYTMuMiAzLjIgMCAxIDAgMCA1LjQiLz48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0xNC42IDEwdjRNMTYuNiAxMHY0TTEzLjggMTEuMmgzLjZNMTMuOCAxMi44aDMuNiIvPjwvc3ZnPg==" alt="C#" />
-<img src="https://img.shields.io/badge/.NET-161B22?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET" />
-<img src="https://img.shields.io/badge/Python-161B22?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-<img src="https://img.shields.io/badge/FastAPI-161B22?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+<img src="assets/badges/csharp.svg" alt="C#" />
+<img src="assets/badges/dotnet.svg" alt=".NET" />
+<img src="assets/badges/python.svg" alt="Python" />
+<img src="assets/badges/fastapi.svg" alt="FastAPI" />
 
 **Mobile**<br />
-<img src="https://img.shields.io/badge/.NET_MAUI-161B22?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET MAUI" />
-<img src="https://img.shields.io/badge/Expo_%C2%B7_React_Native-161B22?style=for-the-badge&logo=expo&logoColor=white" alt="Expo and React Native" />
+<img src="assets/badges/dotnet-maui.svg" alt=".NET MAUI" />
+<img src="assets/badges/expo-and-react-native.svg" alt="Expo and React Native" />
 
 **Desktop**<br />
-<img src="https://img.shields.io/badge/WPF-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgeD0iMyIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE2IiByeD0iMiIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0zIDguNWgxOE03IDEyLjVoNk03IDE2aDEwIi8+PC9zdmc+" alt="WPF" />
-<img src="https://img.shields.io/badge/Windows_Forms-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgeD0iMyIgeT0iNCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE2IiByeD0iMiIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0zIDguNWgxOCIvPjxyZWN0IHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHg9IjYuNSIgeT0iMTEuNSIgd2lkdGg9IjExIiBoZWlnaHQ9IjMiIHJ4PSIuNSIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0xMyAxNy41aDQuNSIvPjwvc3ZnPg==" alt="Windows Forms" />
+<img src="assets/badges/wpf.svg" alt="WPF" />
+<img src="assets/badges/windows-forms.svg" alt="Windows Forms" />
 
 **Data**<br />
-<img src="https://img.shields.io/badge/PostgreSQL-161B22?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-<img src="https://img.shields.io/badge/Supabase-161B22?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
-<img src="https://img.shields.io/badge/MongoDB-161B22?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+<img src="assets/badges/postgresql.svg" alt="PostgreSQL" />
+<img src="assets/badges/supabase.svg" alt="Supabase" />
+<img src="assets/badges/mongodb.svg" alt="MongoDB" />
 
 **Cloud and DevOps**<br />
-<img src="https://img.shields.io/badge/AWS-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTTcgMTguNWE0LjUgNC41IDAgMCAxLS42LTguOTZBNiA2IDAgMCAxIDE3LjYgOC4xIDUuMiA1LjIgMCAwIDEgMTcgMTguNXoiLz48L3N2Zz4=" alt="AWS" />
-<img src="https://img.shields.io/badge/Azure-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTTkuOCAzLjUgMyAyMGg1LjYiLz48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMTMuOSAzLjUgMjEgMjBIOC42bDctNC42Ii8+PC9zdmc+" alt="Azure" />
-<img src="https://img.shields.io/badge/Docker-161B22?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-<img src="https://img.shields.io/badge/GitHub_Actions-161B22?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions" />
+<img src="assets/badges/aws.svg" alt="AWS" />
+<img src="assets/badges/azure.svg" alt="Azure" />
+<img src="assets/badges/docker.svg" alt="Docker" />
+<img src="assets/badges/github-actions.svg" alt="GitHub Actions" />
 
 ## What I work on
 
@@ -108,9 +108,9 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 Interested in building something together? I take on full-stack products, APIs and cloud work from first idea to production.
 
 <p>
-  <a href="https://fiwbsolutions.com"><img src="https://img.shields.io/badge/Website-2563EB?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGNpcmNsZSBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjeD0iMTIiIGN5PSIxMiIgcj0iOSIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0zIDEyaDE4TTEyIDNjMi41IDIuNiAzLjggNS42IDMuOCA5cy0xLjMgNi40LTMuOCA5Yy0yLjUtMi42LTMuOC01LjYtMy44LTlTOS41IDUuNiAxMiAzeiIvPjwvc3ZnPg==" alt="Website: fiwbsolutions.com" /></a>
-  <a href="https://www.linkedin.com/in/joshua-j-gonzales"><img src="https://img.shields.io/badge/LinkedIn-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgeD0iMyIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iMyIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik04IDEwLjVWMTZNOCA3Ljh2LjFNMTEuNSAxNnYtNS41TTExLjUgMTNjMC0xLjUgMS0yLjYgMi40LTIuNnMyLjMgMSAyLjMgMi42VjE2Ii8+PC9zdmc+" alt="LinkedIn: joshua-j-gonzales" /></a>
-  <a href="mailto:admin@fiwbsolution.com"><img src="https://img.shields.io/badge/Email-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3Qgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgeD0iMyIgeT0iNSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE0IiByeD0iMiIvPjxwYXRoIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0zLjUgNi41IDEyIDEzbDguNS02LjUiLz48L3N2Zz4=" alt="Email: admin@fiwbsolution.com" /></a>
+  <a href="https://fiwbsolutions.com"><img src="assets/badges/website.svg" alt="Website: fiwbsolutions.com" /></a>
+  <a href="https://www.linkedin.com/in/joshua-j-gonzales"><img src="assets/badges/linkedin.svg" alt="LinkedIn: joshua-j-gonzales" /></a>
+  <a href="mailto:admin@fiwbsolution.com"><img src="assets/badges/email.svg" alt="Email: admin@fiwbsolution.com" /></a>
 </p>
 
 <br />

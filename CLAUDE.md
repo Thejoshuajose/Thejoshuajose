@@ -6,15 +6,17 @@ The GitHub profile README repository for `Thejoshuajose`. `README.md` **is** the
 
 ## Commands
 
-- `npm test`: node:test suites for the stats and snake generators (no dependencies, Node ≥ 22)
+- `npm test`: node:test suites for the stats, snake and badge generators (no dependencies, Node ≥ 22)
 - `GH_STATS_TOKEN=$(gh auth token) npm run stats`: render the four stat cards into `dist/` (gitignored) for preview
 - `GH_STATS_TOKEN=$(gh auth token) npm run snake`: render both contribution snakes into `dist/`
+- `npm run badges`: re-download every badge in `scripts/badges/badges.json` into `assets/badges/` (validated, all-or-nothing)
 
 ## Layout
 
 - `README.md`: profile content. A top HTML comment holds the ownership and setup pointer, so it stays invisible on the profile.
 - `assets/banner.svg`: hand-written SVG. System font stacks only, because GitHub serves SVGs as `<img>` and they can't load web fonts. Animations must sit behind `prefers-reduced-motion`. It is a terminal window on a 12 s loop (typed `whoami`, then a `deploy` that ticks off each layer). The resting state is the finished screen and animations only hide or reveal, so with motion off everything is visible. Typing uses `.cover` rects in the window colour that shrink with `steps(n)`, where n is the character count; keep cover widths matched to the text.
 - `scripts/stats/`: `aggregate.mjs` (pure maths), `github.mjs` (GraphQL client), `render.mjs` (SVG), `generate.mjs` (CLI)
+- `scripts/badges/`: `badges.json` (slug → Shields URL manifest), `generate.mjs` (fetch, validate, write `assets/badges/<slug>.svg`)
 - `scripts/snake/`: `plan.mjs` (grid, route, growth timeline), `render.mjs` (animated SVG), `generate.mjs` (CLI). Reuses the stats GraphQL client and `escapeXml`.
 - `.github/workflows/`: `snake.yml` → `output` branch, `stats.yml` → `stats` branch, `test.yml`
 - `docs/SETUP.md`: setup steps, placeholder checklist, bios, profile configuration
@@ -24,7 +26,7 @@ The GitHub profile README repository for `Thejoshuajose`. `README.md` **is** the
 - **No invented content.** Projects, metrics and claims must trace back to a real repo or live site. Describe client work at the product level and never expose internal infrastructure, collection names, endpoints or env details.
 - **No repositories on the profile.** The owner chose not to showcase any repos: no Featured projects section, no repo names or links, no pins, and never modify the other repositories from here.
 - **Contact details**: email is `admin@fiwbsolution.com` (domain without the "s"; it's the one with MX records). Don't swap in any other address from account metadata. The website is `https://fiwbsolutions.com` and LinkedIn is `https://www.linkedin.com/in/joshua-j-gonzales`. There is no Portfolio button.
-- **Badges**: Shields `for-the-badge`, background `161B22`, white logos. Simple Icons has dropped C#, AWS, LinkedIn and every Microsoft brand (Azure, Windows), so C#, AWS, LinkedIn, Azure, WPF and Windows Forms use inline base64 monoline SVG logos. Verify any new badge renders a logo (`curl … | grep -c '<image'`).
+- **Badges**: Shields `for-the-badge`, background `161B22`, white logos. Simple Icons has dropped C#, AWS, LinkedIn and every Microsoft brand (Azure, Windows), so C#, AWS, LinkedIn, Azure, WPF and Windows Forms use inline base64 monoline SVG logos. Badges are **committed SVGs** in `assets/badges/`, never hot-linked: GitHub's camo proxy times out after ~4 s and Shields is often slower on a cold cache, which left a random set of badges broken. To add or change one, edit `badges.json`, run `npm run badges` (it fails if a logo is missing), and reference `assets/badges/<slug>.svg` in the README. A test fails if the README mentions `img.shields.io` or the manifest, files and README drift apart.
 - **Palette**: bg `#0D1117`, surface `#161B22`, text `#F0F6FC`, muted `#8B949E`, accent `#2563EB`. Use the accent sparingly.
 - **Stats honesty**: private contributions come back only as `restrictedContributionsCount`, so per-type numbers like commits undercount. Cards use calendar totals, active days and streaks instead. Cards must keep their scope label. The owner asked to drop the "composition, not proficiency" footnote from the languages card; don't re-add it.
 - **Workflows** pin third-party actions to commit SHAs with a `# vX.Y.Z` comment. Lint with `docker run --rm -v "$(pwd -W):/repo" -w /repo rhysd/actionlint:latest` (needs `MSYS_NO_PATHCONV=1` in Git Bash).
