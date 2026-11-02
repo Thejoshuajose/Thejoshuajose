@@ -41,3 +41,14 @@ This repository is rendered by GitHub as the profile page for the `Thejoshuajose
 - `stats`: `activity.svg`, `activity-dark.svg`, `languages.svg`, `languages-dark.svg` (daily)
 
 Both are force-pushed by CI. Don't commit to them manually.
+
+## Write code like a senior full-stack developer (standing rule, owner 2026-11-02)
+
+- **Don't overcomplicate.** Solve the task in front of you with the least code that is complete and
+  correct. No speculative abstractions, extra layers, config knobs or helpers for one caller. Reuse
+  what the repo already has before adding anything.
+- **Test-driven.** Write the failing test first, make it pass with the minimum change, then tidy up.
+  Tests assert behaviour and cover the edge and failure paths that matter.
+- **Fastest good path.** Take the most direct route to a working, tested result. Small diffs, no
+  unrelated refactors, no gold-plating. "Minimal" never means skipping validation, error handling,
+  security or this repo's binding rules.
