@@ -9,11 +9,8 @@
 </p>
 
 <p align="center">
-  <b>Full-stack developer building production web applications, APIs, mobile apps,<br />and the cloud infrastructure they run on.</b>
-</p>
-
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=19&duration=3200&pause=1600&color=2563EB&center=true&vCenter=true&width=520&height=40&lines=Full+Stack+Developer;Building+Full-Stack+Products;Web+%E2%80%A2+APIs+%E2%80%A2+Cloud;Turning+Ideas+Into+Production+Software" alt="Full Stack Developer · Building Full-Stack Products · Web, APIs, Cloud · Turning Ideas Into Production Software" />
+  <b>Full-stack developer at FIWB Solutions LLC.</b><br />
+  I take products from the first requirement to production and keep them running after launch.
 </p>
 
 <p align="center">
@@ -24,14 +21,102 @@
 
 <br />
 
-I'm Josh. I build software at **FIWB Solutions LLC** and take products from the first requirement to production: the interface, the API, the data model, the deployment, and the support after launch. Most of that work is private software running real businesses.
+## What I build
 
-- **Full-stack products:** React and TypeScript front ends on top of APIs and databases I design myself
-- **APIs and backend systems:** REST services in FastAPI and ASP.NET Core with JWT and passkey authentication
-- **Cloud infrastructure:** AWS Elastic Beanstalk, Secrets Manager, DNS, TLS and CI/CD with GitHub Actions
-- **Business software:** web, mobile and desktop tools that run day-to-day operations for real companies
+Most of my work is private software that real businesses run on every day. I own the whole path: the interface, the API, the data model, the deployment, and the support after launch.
 
-## Development activity
+- **Web:** React and TypeScript front ends on APIs and databases I design myself
+- **APIs:** REST services in FastAPI and ASP.NET Core, with JWT and passkey authentication
+- **Mobile:** native apps in .NET MAUI and Expo
+- **Desktop:** .NET tools for Windows and macOS that keep working offline
+- **Cloud:** AWS hosting, secrets, DNS and TLS, shipped through GitHub Actions
+- **Games:** Roblox games written in Luau
+
+## Stack
+
+<table>
+  <tr>
+    <th align="left" valign="top">Frontend</th>
+    <td>
+      <img src="assets/badges/react.svg" alt="React" />
+      <img src="assets/badges/typescript.svg" alt="TypeScript" />
+      <img src="assets/badges/nextjs.svg" alt="Next.js" />
+      <img src="assets/badges/vite.svg" alt="Vite" />
+      <img src="assets/badges/tanstack.svg" alt="TanStack" />
+      <img src="assets/badges/tailwind-css.svg" alt="Tailwind CSS" />
+      <img src="assets/badges/shadcn-ui.svg" alt="shadcn/ui" />
+      <img src="assets/badges/gsap.svg" alt="GSAP" />
+      <img src="assets/badges/threejs.svg" alt="Three.js" />
+      <img src="assets/badges/zod.svg" alt="Zod" />
+    </td>
+  </tr>
+  <tr>
+    <th align="left" valign="top">Backend</th>
+    <td>
+      <img src="assets/badges/csharp.svg" alt="C#" />
+      <img src="assets/badges/dotnet.svg" alt=".NET" />
+      <img src="assets/badges/aspnet-core.svg" alt="ASP.NET Core" />
+      <img src="assets/badges/python.svg" alt="Python" />
+      <img src="assets/badges/fastapi.svg" alt="FastAPI" />
+    </td>
+  </tr>
+  <tr>
+    <th align="left" valign="top">Mobile</th>
+    <td>
+      <img src="assets/badges/dotnet-maui.svg" alt=".NET MAUI" />
+      <img src="assets/badges/expo-and-react-native.svg" alt="Expo and React Native" />
+    </td>
+  </tr>
+  <tr>
+    <th align="left" valign="top">Desktop</th>
+    <td>
+      <img src="assets/badges/wpf.svg" alt="WPF" />
+      <img src="assets/badges/windows-forms.svg" alt="Windows Forms" />
+      <img src="assets/badges/avalonia.svg" alt="Avalonia" />
+    </td>
+  </tr>
+  <tr>
+    <th align="left" valign="top">Games</th>
+    <td>
+      <img src="assets/badges/roblox-and-luau.svg" alt="Roblox and Luau" />
+    </td>
+  </tr>
+  <tr>
+    <th align="left" valign="top">Data</th>
+    <td>
+      <img src="assets/badges/postgresql.svg" alt="PostgreSQL" />
+      <img src="assets/badges/supabase.svg" alt="Supabase" />
+      <img src="assets/badges/mongodb.svg" alt="MongoDB" />
+      <img src="assets/badges/redis.svg" alt="Redis" />
+    </td>
+  </tr>
+  <tr>
+    <th align="left" valign="top">Testing</th>
+    <td>
+      <img src="assets/badges/vitest.svg" alt="Vitest" />
+      <img src="assets/badges/pytest.svg" alt="pytest" />
+      <img src="assets/badges/xunit.svg" alt="xUnit" />
+    </td>
+  </tr>
+  <tr>
+    <th align="left" valign="top">Cloud and DevOps</th>
+    <td>
+      <img src="assets/badges/aws.svg" alt="AWS" />
+      <img src="assets/badges/azure.svg" alt="Azure" />
+      <img src="assets/badges/docker.svg" alt="Docker" />
+      <img src="assets/badges/github-actions.svg" alt="GitHub Actions" />
+    </td>
+  </tr>
+</table>
+
+## Currently building
+
+- Customer portals and admin tools on React and Supabase, for web and native mobile
+- Passkey-first authentication across APIs and mobile apps
+- Offline desktop tooling in .NET
+- Tighter CI, dependency pinning and deployment workflows
+
+## Activity
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Thejoshuajose/Thejoshuajose/stats/activity-dark.svg" />
@@ -53,83 +138,12 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 
 <sub>Cards are generated daily from the GitHub API by this repository's own workflows. They count private work, so the numbers are higher than what the public repositories alone would show.</sub>
 
-## Technologies
+## Contact
 
-**Frontend**<br />
-<img src="assets/badges/react.svg" alt="React" />
-<img src="assets/badges/typescript.svg" alt="TypeScript" />
-<img src="assets/badges/nextjs.svg" alt="Next.js" />
-<img src="assets/badges/vite.svg" alt="Vite" />
-<img src="assets/badges/tanstack.svg" alt="TanStack" />
-<img src="assets/badges/tailwind-css.svg" alt="Tailwind CSS" />
-<img src="assets/badges/shadcn-ui.svg" alt="shadcn/ui" />
-<img src="assets/badges/gsap.svg" alt="GSAP" />
-<img src="assets/badges/threejs.svg" alt="Three.js" />
-<img src="assets/badges/zod.svg" alt="Zod" />
-
-**Backend**<br />
-<img src="assets/badges/csharp.svg" alt="C#" />
-<img src="assets/badges/dotnet.svg" alt=".NET" />
-<img src="assets/badges/aspnet-core.svg" alt="ASP.NET Core" />
-<img src="assets/badges/python.svg" alt="Python" />
-<img src="assets/badges/fastapi.svg" alt="FastAPI" />
-
-**Mobile**<br />
-<img src="assets/badges/dotnet-maui.svg" alt=".NET MAUI" />
-<img src="assets/badges/expo-and-react-native.svg" alt="Expo and React Native" />
-
-**Desktop**<br />
-<img src="assets/badges/wpf.svg" alt="WPF" />
-<img src="assets/badges/windows-forms.svg" alt="Windows Forms" />
-<img src="assets/badges/avalonia.svg" alt="Avalonia" />
-
-**Games**<br />
-<img src="assets/badges/roblox-and-luau.svg" alt="Roblox and Luau" />
-
-**Data**<br />
-<img src="assets/badges/postgresql.svg" alt="PostgreSQL" />
-<img src="assets/badges/supabase.svg" alt="Supabase" />
-<img src="assets/badges/mongodb.svg" alt="MongoDB" />
-<img src="assets/badges/redis.svg" alt="Redis" />
-
-**Testing**<br />
-<img src="assets/badges/vitest.svg" alt="Vitest" />
-<img src="assets/badges/pytest.svg" alt="pytest" />
-<img src="assets/badges/xunit.svg" alt="xUnit" />
-
-**Cloud and DevOps**<br />
-<img src="assets/badges/aws.svg" alt="AWS" />
-<img src="assets/badges/azure.svg" alt="Azure" />
-<img src="assets/badges/docker.svg" alt="Docker" />
-<img src="assets/badges/github-actions.svg" alt="GitHub Actions" />
-
-## What I work on
-
-**Full-stack applications**: interfaces, backend services, data models and deployment, designed together.
-
-**API development**: REST APIs, authentication, data services, third-party integrations and the business rules behind them.
-
-**Cloud infrastructure**: AWS deployments, environment configuration and secrets, DNS, SSL/TLS, application hosting and CI/CD.
-
-**Product engineering**: turning a business requirement into software people use every day, then maintaining it.
-
-## Currently building
-
-- Customer portals and admin tools on React and Supabase, for web and native mobile
-- Passkey-first authentication across APIs and mobile apps
-- Offline desktop tooling in .NET
-- Tighter CI, dependency pinning and deployment workflows
-
-## Let's connect
-
-Interested in building something together? I take on full-stack products, APIs and cloud work from first idea to production.
+Have something to build? I take on full-stack products, APIs and cloud work, from first idea to production.
 
 <p>
   <a href="https://fiwbsolutions.com"><img src="assets/badges/website.svg" alt="Website: fiwbsolutions.com" /></a>
   <a href="https://www.linkedin.com/in/joshua-j-gonzales"><img src="assets/badges/linkedin.svg" alt="LinkedIn: joshua-j-gonzales" /></a>
   <a href="mailto:admin@fiwbsolution.com"><img src="assets/badges/email.svg" alt="Email: admin@fiwbsolution.com" /></a>
 </p>
-
-<br />
-
-<p align="center"><sub>Building software from interface to infrastructure.</sub></p>
