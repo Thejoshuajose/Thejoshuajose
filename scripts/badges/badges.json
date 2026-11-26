@@ -20,5 +20,18 @@
   "aws": "https://img.shields.io/badge/AWS-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTTcgMTguNWE0LjUgNC41IDAgMCAxLS42LTguOTZBNiA2IDAgMCAxIDE3LjYgOC4xIDUuMiA1LjIgMCAwIDEgMTcgMTguNXoiLz48L3N2Zz4=",
   "azure": "https://img.shields.io/badge/Azure-161B22?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iTTkuOCAzLjUgMyAyMGg1LjYiLz48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMTMuOSAzLjUgMjEgMjBIOC42bDctNC42Ii8+PC9zdmc+",
   "docker": "https://img.shields.io/badge/Docker-161B22?style=for-the-badge&logo=docker&logoColor=white",
-  "github-actions": "https://img.shields.io/badge/GitHub_Actions-161B22?style=for-the-badge&logo=githubactions&logoColor=white"
+  "github-actions": "https://img.shields.io/badge/GitHub_Actions-161B22?style=for-the-badge&logo=githubactions&logoColor=white",
+  "nextjs": "https://img.shields.io/badge/Next.js-161B22?style=for-the-badge&logo=nextdotjs&logoColor=white",
+  "vite": "https://img.shields.io/badge/Vite-161B22?style=for-the-badge&logo=vite&logoColor=white",
+  "tanstack": "https://img.shields.io/badge/TanStack-161B22?style=for-the-badge&logo=tanstack&logoColor=white",
+  "shadcn-ui": "https://img.shields.io/badge/shadcn%2Fui-161B22?style=for-the-badge&logo=shadcnui&logoColor=white",
+  "threejs": "https://img.shields.io/badge/Three.js-161B22?style=for-the-badge&logo=threedotjs&logoColor=white",
+  "zod": "https://img.shields.io/badge/Zod-161B22?style=for-the-badge&logo=zod&logoColor=white",
+  "aspnet-core": "https://img.shields.io/badge/ASP.NET_Core-161B22?style=for-the-badge&logo=dotnet&logoColor=white",
+  "avalonia": "https://img.shields.io/badge/Avalonia-161B22?style=for-the-badge&logo=avaloniaui&logoColor=white",
+  "redis": "https://img.shields.io/badge/Redis-161B22?style=for-the-badge&logo=redis&logoColor=white",
+  "roblox-and-luau": "https://img.shields.io/badge/Roblox_%C2%B7_Luau-161B22?style=for-the-badge&logo=roblox&logoColor=white",
+  "vitest": "https://img.shields.io/badge/Vitest-161B22?style=for-the-badge&logo=vitest&logoColor=white",
+  "pytest": "https://img.shields.io/badge/pytest-161B22?style=for-the-badge&logo=pytest&logoColor=white",
+  "xunit": "https://img.shields.io/badge/xUnit-161B22?style=for-the-badge&logo=dotnet&logoColor=white"
 }

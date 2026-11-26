@@ -58,12 +58,19 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 **Frontend**<br />
 <img src="assets/badges/react.svg" alt="React" />
 <img src="assets/badges/typescript.svg" alt="TypeScript" />
+<img src="assets/badges/nextjs.svg" alt="Next.js" />
+<img src="assets/badges/vite.svg" alt="Vite" />
+<img src="assets/badges/tanstack.svg" alt="TanStack" />
 <img src="assets/badges/tailwind-css.svg" alt="Tailwind CSS" />
+<img src="assets/badges/shadcn-ui.svg" alt="shadcn/ui" />
 <img src="assets/badges/gsap.svg" alt="GSAP" />
+<img src="assets/badges/threejs.svg" alt="Three.js" />
+<img src="assets/badges/zod.svg" alt="Zod" />
 
 **Backend**<br />
 <img src="assets/badges/csharp.svg" alt="C#" />
 <img src="assets/badges/dotnet.svg" alt=".NET" />
+<img src="assets/badges/aspnet-core.svg" alt="ASP.NET Core" />
 <img src="assets/badges/python.svg" alt="Python" />
 <img src="assets/badges/fastapi.svg" alt="FastAPI" />
 
@@ -74,11 +81,21 @@ I'm Josh. I build software at **FIWB Solutions LLC** and take products from the 
 **Desktop**<br />
 <img src="assets/badges/wpf.svg" alt="WPF" />
 <img src="assets/badges/windows-forms.svg" alt="Windows Forms" />
+<img src="assets/badges/avalonia.svg" alt="Avalonia" />
+
+**Games**<br />
+<img src="assets/badges/roblox-and-luau.svg" alt="Roblox and Luau" />
 
 **Data**<br />
 <img src="assets/badges/postgresql.svg" alt="PostgreSQL" />
 <img src="assets/badges/supabase.svg" alt="Supabase" />
 <img src="assets/badges/mongodb.svg" alt="MongoDB" />
+<img src="assets/badges/redis.svg" alt="Redis" />
+
+**Testing**<br />
+<img src="assets/badges/vitest.svg" alt="Vitest" />
+<img src="assets/badges/pytest.svg" alt="pytest" />
+<img src="assets/badges/xunit.svg" alt="xUnit" />
 
 **Cloud and DevOps**<br />
 <img src="assets/badges/aws.svg" alt="AWS" />
